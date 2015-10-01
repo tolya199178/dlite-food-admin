@@ -1,0 +1,20 @@
+.middle-box.text-center.loginscreen.animated.fadeInDown
+  div
+    div
+      h1.logo-name JFF
+    .clear-fix
+    p
+      | If you don't have account, please ask your supervisor before trying to login !
+    p Login in
+    form.m-t(name='form', ng-submit='login(form)', novalidate='')
+      .form-group
+        input.form-control(type='text', placeholder='Email',, name='email', ng-model='user.email', required)
+      .form-group
+        input.form-control(type='password', placeholder='Password', required='', ng-model='user.password')
+      .form-group.has-error
+        p.help-block(ng-show='form.email.$error.required && form.password.$error.required && submitted')
+          | Please enter your email and password.
+        p.help-block {{ errors.other }}
+      button.btn.btn-primary.block.full-width.m-b(type='submit') Login
+      a(href='#')
+        small Forgot password?
